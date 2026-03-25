@@ -1,5 +1,5 @@
 # build app with bun
-FROM oven/bun:latest AS builder
+FROM oven/bun:latest@sha256:0733e50325078969732ebe3b15ce4c4be5082f18c4ac1a0f0ca4839c2e4e42a7 AS builder
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ ENV VITE_SURREALIST_DOCKER=true
 RUN bun run build
 
 # set up production image (static assets served by nginx)
-FROM nginx:1.28.0-alpine3.21-slim
+FROM nginx:1.28.0-alpine3.21-slim@sha256:ce2bd4775ed6859d35f47d65401ee9f35f1dd00b32ed05f0ce38b68aa1830195
 
 WORKDIR /usr/share/nginx/
 
